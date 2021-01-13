@@ -33,6 +33,10 @@ app.use('/', routeOccVeiMat);
 
 app.use(express.static("../../Frontend/"));
 
+app.get('/', function(req,res){
+    res.send("hello");
+});
+
 app.listen(port, function () {
 console.log('Example app listening on port '+ port );
 });
