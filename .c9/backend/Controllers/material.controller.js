@@ -21,9 +21,9 @@ function read (req, res) {
         
 function readTypeMat (req, res) {
     
-        const idmat = req.params.id_material;
+        const mat_type = req.params.material_type;
         
-        connection.con.query('SELECT material_type FROM material WHERE id_material = ? ', [idmat], function (err, rows, fields) {
+        connection.con.query('SELECT * FROM material WHERE material_type= ? ', [mat_type], function (err, rows, fields) {
         if (!err) {
         
         if (rows.length == 0) {

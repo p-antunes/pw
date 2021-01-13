@@ -44,7 +44,7 @@ function readID (req, res) {
    //função de gravação que recebe os 3 parâmetros
 function save (req, res) {
     //receber os dados do formuário que são enviados por post
-    const idoperational = req.body.id_operational;
+    
     const name = req.body.name;
      const birthdate = req.body.birth_date;
      const adress = req.body.adress;
@@ -56,7 +56,7 @@ function save (req, res) {
     const speciality = req.body.speciality;
     const idlogin = req.body.id_login;
     let query = "";
-    query = connection.con.query('INSERT INTO operational (id_operational, name, birth_date, adress, entry_date, cc, phone_number, pay_per_hour,operational_type, speciality, id_login) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ', [ idmoperational, name, birthdate, adress, entrydate, cc, phonenr, payperhour, operationaltype, speciality, idlogin], function (err, rows, fields) {
+    query = connection.con.query('INSERT INTO operational ( name, birth_date, adress, entry_date, cc, phone_number, pay_per_hour,operational_type, speciality, id_login) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ', [ name, birthdate, adress, entrydate, cc, phonenr, payperhour, operationaltype, speciality, idlogin], function (err, rows, fields) {
         console.log(query.sql);
         if (!err) {
             res.status(200).location(rows.insertId).send({
@@ -72,3 +72,34 @@ function save (req, res) {
         else res.status(400).send({"msg": err.code});
         }
     });
+}
+
+function deleteID(req, res) {
+    //criar e executar a query de leitura na BD
+    const id_operational = req.body.id_operational;
+    const id_occurrence = req.body.id_occurrence;
+    connection.con.query('DELETE from opererational_occurrence where id_operational =? and id_occurrence = ?', [id_operational, id_occurrence], function (err, rows, fields) {
+    
+    if (!err) {
+    /*verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário
+    envia os resultados (rows).*/
+    if (rows.length == 0) {
+    res.status(404).send({
+    "msg": "data not found"
+    });
+    } else {
+    res.status(200).send({
+    "msg": "success"
+    });
+    }
+    } else
+    console.log('Error while performing Query.', err);
+    });
+    }
+    
+    module.exports= {
+        read:read,
+        readID:readID,
+        save:save,
+        deleteID:deleteID
+    };

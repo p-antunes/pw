@@ -55,6 +55,33 @@ function getRowIndex(element) {
     
 }
 
+function selectbox(){
+    
+    var selected = document.getElementById("chooseMat");
+    var material = selected.options[selected.selectedIndex].text;
+    
+    
+    fetch('https://395d8654ffeb4196bccfb50daba7e22d.vfs.cloud9.us-east-1.amazonaws.com/materials/' + material)
+        .then(res => res.json())
+        .then((out) => {
+            $('#table_material tbody').empty();
+            $.each(out, function(index, mat) {
+                $('#table_material tbody').append(
+                    `
+                <tr>
+                    <td>${mat.id_material}</td>
+                    <td>${mat.material_type}</td>
+                    <td class='disponibilidade' id='disponibilidade'>${mat.availability}</td>
+                    <td><button onclick="getRowIndex(this)" class="fas fa-trash-alt trash_costumize"></button></td>
+                </tr>
+            ` 
+            );
+            contaLinhas();
+            
+            });
+        }).catch(err => console.error(err));
+}
+
 /*
 for(var i = 0; i < linhas.length; i++){
     var linha = linhas[i];

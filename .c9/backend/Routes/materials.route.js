@@ -2,7 +2,7 @@ const materials = require ('express').Router();
 const contmat = require('../Controllers/material.controller.js');
 
 materials.get('/materials/', contmat.read);
-materials.get('/materials/:id_material', contmat.readTypeMat);
+materials.get('/materials/:material_type', contmat.readTypeMat);
 materials.post('/materials/', contmat.save);
 materials.put('/materials/:id_material', contmat.updateID);
 materials.put('/materials/type/:id_material', contmat.updateMatType);

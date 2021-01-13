@@ -20,8 +20,8 @@ const connection = require ('../Config/connectMySql');
     }
 
 function readID (req, res) {
-        const ..... = req.params......;
-        connection.con.query('SELECT * FROM occuroper WHERE ..... = ? ', [.....], function (err, rows, fields) {
+        const id_operational= req.params.id_operational;
+        connection.con.query('SELECT * FROM occuroper WHERE id_operational= ? ', [id_operational], function (err, rows, fields) {
         if (!err) {
         
         if (rows.length == 0) {
@@ -68,3 +68,34 @@ function save (req, res) {
         else res.status(400).send({"msg": err.code});
         }
     });
+}
+
+function deleteID(req, res) {
+    //criar e executar a query de leitura na BD
+    const id_operational = req.body.id_operational;
+    const id_occurrence = req.body.id_occurrence;
+    connection.con.query('DELETE from operational_occurence where id_operational = ? and id_ooccurrence = ?', [id_operational, id_occurrence], function (err, rows, fields) {
+    
+    if (!err) {
+    /*verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário
+    envia os resultados (rows).*/
+    if (rows.length == 0) {
+    res.status(404).send({
+    "msg": "data not found"
+    });
+    } else {
+    res.status(200).send({
+    "msg": "success"
+    });
+    }
+    } else
+    console.log('Error while performing Query.', err);
+    });
+    }
+
+module.exports = {
+    read:read,
+    readID:readID,
+    save:save,
+    deleteID:deleteID
+};

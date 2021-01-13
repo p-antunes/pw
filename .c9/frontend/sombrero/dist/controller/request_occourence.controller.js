@@ -24,7 +24,7 @@ window.onload = function() {
                 </tr>
             ` 
             );
-            //contaLinhas();
+            contaLinhas();
             
             });
         }).catch(err => console.error(err));

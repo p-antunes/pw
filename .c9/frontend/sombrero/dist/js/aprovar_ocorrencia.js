@@ -43,9 +43,9 @@ function getRowIndex(element) {
     
             let id = tabela.rows[rowIndex].cells[0].innerHTML;
     
-            Deleterequestbd();
+            Deleterequest();
     
-            function Deleterequestbd() {
+            function Deleterequest() {
      
                 let dadosput = {};
         
@@ -100,18 +100,80 @@ function getRowIndex(element) {
   }
   
   //aprovar pedido a ocorrencia
-  function aprove(element) {
+    function aprove(element) {
+        
+        var rowJavascript = element.parentNode.parentNode;
+        var rowIndex = rowJavascript.rowIndex;
+        let id = tabela.rows[rowIndex].cells[0].innerHTML;
+        
+        aproveRequest();
+        insertInOccurence();
+        
+        function aproveRequest() {
+     
+                let dadosput = {};
+        
+                let veri = "Aprovado";
+                 
+                dadosput.verification = veri;
+                
+                console.log(dadosput);
+                 
+                 fetch("https://395d8654ffeb4196bccfb50daba7e22d.vfs.cloud9.us-east-1.amazonaws.com/approvals/verification/" + id,  {
+                     headers: { 'Content-Type': 'application/json' },
+                     method: 'PUT',
+                     body: JSON.stringify(dadosput)
+                }).then(function(response) {
+        
+                    if (!response.ok) {
+                        console.log(response.status); //=> number 100–599
+                        console.log(response.statusText); //=> String
+                        console.log(response.headers); //=> Headers
+                        console.log(response.url); //=> String
+                        
+                        throw Error(response.statusText);
+                        
+                    }else {
+                    }
+                 }).then(function(result) {
+                     console.log(result);
+                 }).catch(function(err) {
+                    Swal.fire({
+                        title: 'Erro!',
+                        text: "Erro de Atualização do Pedido",
+                        icon: 'error',
+                        confirmButtonColor: '#681517'
+                    });
+                     
+                    console.error(err);
+                    
+                 });
+            }
+            
+        function insertInOccurence(){
+        
+        
+        let local = tabela.rows[rowIndex].cells[4].innerHTML;
+        let content = tabela.rows[rowIndex].cells[3].innerHTML;
+        let description = tabela.rows[rowIndex].cells[6].innerHTML;
       
-      let local = tabela.rows[rowIndex].cells[4].innerHTML;
-      
-    let dados = {};
+        let dados = {};
          
         dados.local = local;
         dados.distance = null;
-        dados.occurence_type = 
+        dados.occurrence_type = content;
+        dados.status = "Em curso";
+        dados.arrival = null;
+        dados.departure = null;
+        dados.cost = null;
+        dados.origin = null;
+        dados.description = description;
+        dados.victim_number = null;
+        dados.id_entity = null;
+        dados.id_request = id;
         console.log(dados);
         
-        fetch("https://395d8654ffeb4196bccfb50daba7e22d.vfs.cloud9.us-east-1.amazonaws.com/materials/", {
+        fetch("https://395d8654ffeb4196bccfb50daba7e22d.vfs.cloud9.us-east-1.amazonaws.com/occurs/", {
              headers: { 'Content-Type': 'application/json' },
              method: 'POST',
              body: JSON.stringify(dados)
@@ -131,44 +193,30 @@ function getRowIndex(element) {
                  }
              }
              else {
-                 materialForm.reset(); //limpeza dos dados do form
-                 
-                 if((quantidade > 1) && (i==0)){
-                    Swal.fire({
-                        title: 'Submetidos!',
-                        text: "Materiais submetidos com sucesso",
-                        icon: 'success',
-                        confirmButtonColor: '#681517'
-                    });
-                    
-                    window.location.replace("registar_material.html");
-                     
-                } else if(quantidade == 1){
-                    Swal.fire({
-                        title: 'Submetido!',
-                        text: "Material submetido com sucesso",
-                        icon: 'success',
-                        confirmButtonColor: '#681517'
-                    });
-                    
-                    window.location.replace("registar_material.html"); 
-                }
-               
-             }
+                
+                Swal.fire({
+                    title: 'Aprovado!',
+                    text: "Pedido aprovado com sucesso",
+                    icon: 'success',
+                    confirmButtonColor: '#681517'
+                });
+            }
          }).then(function(result) {
              console.log(result);
          }).catch(function(err) {
             Swal.fire({
                         title: 'Erro!',
-                        text: "Erro de Submissão",
+                        text: "Erro de aprovação",
                         icon: 'error',
                         confirmButtonColor: '#681517'
             });
              
             console.error(err);
-         });
+            });
+        
+        }
       
-  }
+    }
   
 
 

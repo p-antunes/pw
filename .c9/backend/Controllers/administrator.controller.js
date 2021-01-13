@@ -245,7 +245,7 @@ function updateIDlogin(req, res) {
     //função que apaga todos os dados de um mat
 function deleteID(req, res) {
     //criar e executar a query de leitura na BD
-    const idadmin = req.body.id_admin;
+    const idadmin = req.params.id_admin;
     connection.con.query('DELETE from administrator where id_admin = ?', [idadmin], function (err, rows, fields) {
     
     if (!err) {

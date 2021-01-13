@@ -1,5 +1,5 @@
 const occurs = require ('express').Router();
-const contoccur = require('../Controllers/ooccur.controller.js');
+const contoccur = require('../Controllers/occur.controller.js');
 
 occurs.get('/occurs/', contoccur.read);
 occurs.get('/occurs/:id_occurrence', contoccur.readID);

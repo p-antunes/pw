@@ -4,7 +4,7 @@ const connection = require ('../Config/connectMySql');
 
 function read  (req, res) {
     //criar e executar a query de leitura na BD
-    connection.con.query('SELECT * FROM occur', function (err,
+    connection.con.query('SELECT * FROM occurrence', function (err,
     rows, fields) {
     if (!err) {
     /*verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso
@@ -22,7 +22,7 @@ function read  (req, res) {
 
 function readID (req, res) {
         const idoccurrence = req.params.id_occurrence;
-        connection.con.query('SELECT * FROM occur WHERE id_occurrence = ? ', [idoccurrence], function (err, rows, fields) {
+        connection.con.query('SELECT * FROM occurrence WHERE id_occurrence = ? ', [idoccurrence], function (err, rows, fields) {
         if (!err) {
         
         if (rows.length == 0) {
@@ -44,21 +44,38 @@ function readID (req, res) {
    //função de gravação que recebe os 3 parâmetros
 function save (req, res) {
     //receber os dados do formuário que são enviados por post
-    const idoccurrence = req.body.id_occurrence; 
+     
     const local = req.body.local;
     const distance = req.body.distance;
     const occurrencetype = req.body.occurrence_type;
     const status = req.body.status;
-    const accesscode = req.body.access_code;
     const arrival = req.body.arrival;
     const departure = req.body.departure;
     const cost = req.body.cost;
     const origin = req.body.origin;
     const description = req.body.description;
+    const vinumber = req.body.victim_number;
     const identity = req.body.id_entity;
     const idrequest = req.body.id_request;
-    let query = "";
-    query = connection.con.query('INSERT INTO occur (id_occurrence, local, distance, occurrence_type, status, access_code, arrival, departure, cost, origin, description, id_entity, id_request) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ', [ idoccurrence, local, distance, occurrencetype, status, accesscode, arrival, departure, cost, origin, description, identity, idrequest], function (err, rows, fields) {
+    
+    const post = {
+            
+            local: local,
+            distance: distance,
+            occurrence_type: occurrencetype,
+            status: status,
+            arrival: arrival,
+            departure: departure,
+            cost: cost,
+            origin: origin,
+            description: description,
+            victim_number: vinumber,
+            id_entity: identity,
+            id_request: idrequest,
+            
+        };
+    
+    const query = connection.con.query('INSERT INTO occurrence SET ?', post, function(err, rows, fields) {
         console.log(query.sql);
         if (!err) {
             res.status(200).location(rows.insertId).send({
