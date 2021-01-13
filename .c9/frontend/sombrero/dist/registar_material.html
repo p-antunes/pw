@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Registar Material</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+        <link rel="shortcut icon" href="img/logo.png">
+        
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="sweetalert2.all.min.js"></script>
+        <script src="sweetalert2.min.js"></script>
+        <link rel="stylesheet" href="sweetalert2.min.css">
+        
+        <link href="registar_user/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="registar_user/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    
+    
+
+    <!-- Vendor CSS-->
+    <link href="registar_user/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="registar_user/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="registar_user/css/main.css" rel="stylesheet" media="all">
+    
+    <script src="js/registar_user.js"></script>
+    
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo" class="navbar-logo"></img>Bombeiros</a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            
+            <!-- Navbar-->
+            <ul class="navbar-nav ml-auto ml-md-7">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="perfil.html">Perfil</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="login.html">Sair</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading"> 
+                            </div>
+                            <div class="sb-sidenav-menu-body"> 
+                            
+                            <a class="nav-link" href="aprovar_ocorrencia.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-bell"></i></div>
+                                Aprovar Ocorrências
+                            </a>
+                            
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-edit"></i></div>
+                                Gerir Utilizadores
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="utilizadores_registados.html">Utilizadores</a>
+                                    <a class="nav-link" href="registar_utilizador.html">Registar Utilizadores</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Material
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="materiais_registados.html">Materiais Registados</a>
+                                    <a class="nav-link" href="registar_material.html">Registar Materiais</a>
+                                </nav>
+                            </div>
+                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage66" aria-expanded="false" aria-controls="collapsePage66">
+                                <div class="sb-nav-link-icon"><i class="fas fa-ambulance"></i></div>
+                               Veículos
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePage66" aria-labelledby="headingFour" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="veiculos_registados.html">Veículos Registados</a>
+                                    <a class="nav-link" href="registo_veiculos.html">Registar Veículos</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage3" aria-expanded="false" aria-controls="collapsePage3">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-bar chart_costumize"></i></div>
+                                Dashboards
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePage3" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="dashboard_ocorrencias.html">Ocorrências</a>
+                                    <a class="nav-link" href="dashboard_equipamentos.html">Equipamentos</a>
+                                    <a class="nav-link" href="dashboard_operacionais.html">Operacionais</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link" href="aprovar_volun.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
+                                Aprovar Voluntários
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                <div class="sb-sidenav-footer bg-color">
+                    <div class="small">Ligado como:</div>
+                    Admimistrador
+                </div>
+                    
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="page-wrapper bg-blue p-t-67 font-robo">
+        <div class="wrapper wrapper--w560">
+                    <h2 class="title p-t-40">Registo de Material</h2>
+                    <form method="POST" id="regmaterial_form" action="https://395d8654ffeb4196bccfb50daba7e22d.vfs.cloud9.us-east-1.amazonaws.com/materials">
+                        
+                        
+                        <div class="grupo-input">
+                            <label class="label_reg_mat">Disponibilidade</label>
+                            <input class="input--estilo-1" type="text" value="Disponível" disabled>
+                        </div>
+                    
+                        <div class="row row-space">
+                            <div class="col-8">
+                                <div class="grupo-input">
+                                    <label class="label_reg_mat">Material</label>
+                                    <div class="rs-select2 js-select-simple">
+                                <!--opções de materiais que poderão ser selecionadas-->
+                                <select id="regmaterial_type" value="" name="material_type" required>
+                                    <option 
+                                    disabled="disabled" selected="selected">Selecione o material pretendido</option>
+                                    <option value="Abafador Extensivel">Abafador Extensivel</option>
+                                    <option value="Ancinho">Ancinho</option>
+                                    <option value="Foição">Foição</option>
+                                    <option value="Indutor de Espuma">Indutor de Espuma</option>
+                                    <option value="Machado Florestal">Machado Florestal</option>
+                                    <option value="Material Separador">Material Separador</option>
+                                    <option value="Mcleod">Mcleod</option>
+                                    <option value="Multifunções">Multifunções</option>
+                                    <option value="Pá Florestal">Pá Florestal</option>
+                                    <option value="Pulaski">Pulaski</option>
+                                    <option value="Escada">Escada</option>
+                                    <option value="Fireshelter">Fireshelter</option>
+                                    <option value="Arica">Arica</option>
+                                    <option value="Enxada">Enxada</option>
+                                    <option>Motobomba</option>
+                                    <option>Agulheta de 25</option>
+                                    <option>Agulheta de 45</option>
+                                    <option>Agulheta de 70</option>
+                                    <option>Agulheta de 90</option>
+                                    <option>Mangueira de 25</option>
+                                    <option>Mangueira de 45</option>
+                                    <option>Mangueira de 70</option>
+                                    <option>mangueira de 90</option>
+                                    <option>Extrator</option>
+                                    <option>Ventilador</option>
+                                    <option>Extintor de po quimico</option>
+                                    <option>Doseador de espuma</option>
+                                    <option>Hooligan</option>
+                                    <option>Agulheta de espuma de media expansao</option>
+                                    <option>Agulheta de espuma de baixa expansao</option>
+                                    <option>Extratores de pó químico e CO2</option>
+                                    <option>Monitor</option>
+                                    <option>Croque</option>
+                                    <option>Bomba hidraulica</option>
+                                    <option>Curva-reta</option>
+                                    <option>Nó de salvamento</option>
+                                    <option>Escada de gancho</option>
+                                    <option>Batedor</option>
+                                    <option>Gorgui</option>
+                                    <option>Abrigo florestal</option>
+                                    <option>Motoserra</option>
+                                    <option>Disjuntor</option>
+                                    <option>Barquinho</option>
+                                    <option>Equipamento de logistica</option>
+                                    <option>Cadeiras de rodas</option>
+                                    <option>Garrafas de oxigénio</option>
+                                    <option>Saco de primeira abordagem</option>
+                                    <option>Saco de emergencia</option>
+                                    <option>Tanque</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row row-space">
+                            <div class="col-8">
+                                <div class="grupo-input">
+                                    <label  class="label_reg_mat">Quantidade</label>
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                            <!--quantidade de material que poderão ser selecionadas-->
+                                <select name="class" id="regmat_quantity" value="" required>
+                                    <option disabled="disabled" selected="selected">Selecione a quantidade do material</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    <input class="registomat" type="button" id="registrate_mat" value="Registar Material"></input>
+                        
+                    </form>
+                    
+        </div>
+    </main>
+    
+    </div>
+    </div>   
+    </div>
+        <!-- Jquery JS-->
+    <script src="registar_user/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="registar_user/vendor/select2/select2.min.js"></script>
+    <script src="registar_user/vendor/datepicker/moment.min.js"></script>
+    <script src="registar_user/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+        <script src="registar_user/js/global.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/registar_material.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/datatables-demo.js"></script>
+        
+    </body>
+</html>

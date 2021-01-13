@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Utilizadores Registados</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/multiple_select.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+        <link rel="shortcut icon" href="img/logo.png">
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo" class="navbar-logo"></img>Bombeiros</a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            
+            <!-- Navbar-->
+            <ul class="navbar-nav ml-auto ml-md-7">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item"  href="perfil.html">Perfil</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="login.html">Sair</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading"> 
+                            </div>
+                            <div class="sb-sidenav-menu-body"> 
+                            
+                            <a class="nav-link" href="aprovar_ocorrencia.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-bell"></i></div>
+                                Aprovar Ocorrências
+                            </a>
+                            
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-edit"></i></div>
+                                Gerir Utilizadores
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="utilizadores_registados.html">Utilizadores</a>
+                                    <a class="nav-link" href="registar_utilizador.html">Registar Utilizadores</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Material
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="materiais_registados.html">Materiais Registados</a>
+                                    <a class="nav-link" href="registar_material.html">Registar Materiais</a>
+                                </nav>
+                            </div>
+                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage66" aria-expanded="false" aria-controls="collapsePage66">
+                                <div class="sb-nav-link-icon"><i class="fas fa-ambulance"></i></div>
+                               Veículos
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePage66" aria-labelledby="headingFour" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="veiculos_registados.html">Veículos Registados</a>
+                                    <a class="nav-link" href="registo_veiculos.html">Registar Veículos</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage3" aria-expanded="false" aria-controls="collapsePage3">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-bar chart_costumize"></i></div>
+                                Dashboards
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePage3" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="dashboard_ocorrencias.html">Ocorrências</a>
+                                    <a class="nav-link" href="dashboard_equipamentos.html">Equipamentos</a>
+                                    <a class="nav-link" href="dashboard_operacionais.html">Operacionais</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link" href="aprovar_volun.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
+                                Aprovar Voluntários
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sb-sidenav-footer bg-color">
+                        <div class="small">Ligado como:</div>
+                        Admimistrador
+                    </div>
+                    
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                     <h4 class="btn_utilizadores_registados">Utilizadores Registados</h4>
+                     
+                        <!--Filtrar os utilizadores de acordo com o cargo desempenhado-->
+                     <div class="combobox">
+                        <form action="#">
+                            <div class="form-group">
+                                <select name="candidate" id="candidate" class="selectpicker" multiple>
+                                <option class="option" value="">Todos</option>
+                                <option class="option" value="">Administrador</option></option>
+                                <option class="option" value="">Gestor</option>
+                                <option class="option" value="">Utilizador</option>
+                                </select>
+                                <div class="ncandidatos">5 Registos</div>
+                            </div>                        
+                        </form>
+                    </div>
+                      
+            <div class="f"><button class="editar_dados" href="editar_dados.html">Editar Dados</button></div>
+                    <!--Criação da tabela-->
+                    <div class="table1">
+                        <div class="row">
+                        <div class="col-12">
+                        <table class="table_aprove" id="table_aprove">
+        <!--parametros da tabela-->
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">ID Civil</th>
+            <th scope="col">Localidade</th>
+            <th scope="col">Nº Telefone</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Cargo</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <!--Inserção de dados-->
+        <tbody>
+          <tr>
+            <td>Maria Machado</td>
+            <td>123456789</td>
+            <td>Famalicão</td>
+            <td>930503493</td>
+            <td>mariajmachado08@gmail.com</td>
+            <td>Utilizador</td>
+            <td><button onclick="getRowIndex(this)"  class="fas fa-trash-alt trash_costumize" name="lixo"></button></td>
+          </tr>
+          <tr>
+            <td>Francisca Mieiro</td>
+            <td>987654321</td>
+            <td>Gualtar</td>
+            <td>911111111</td>
+            <td>franciscamieiro@gmail.com</td>
+            <td>Administrador</td>
+            <td><button onclick="getRowIndex(this)"  class="fas fa-trash-alt trash_costumize" name="lixo"></button></td>
+          </tr>
+          <tr>
+            <td>Gonçalo Novais</td>
+            <td>234567890</td>
+            <td>Amares</td>
+            <td>987654321</td>
+            <td>goncalonovais@gmail.com</td>
+            <td>Gestor</td>
+            <td><button onclick="getRowIndex(this)"  class="fas fa-trash-alt trash_costumize" name="lixo"></button></td>
+          </tr>
+          <tr>
+            <td>Miguel Martins</td>
+            <td>234561890</td>
+            <td>Cascais</td>
+            <td>123456789</td>
+            <td>miguelmartins@gmail.com</td>
+            <td>Utilizador</td>
+            <td><button onclick="getRowIndex(this)"  class="fas fa-trash-alt trash_costumize" name="lixo"></button></td>
+          </tr>
+          <tr>
+            <td>Pedro Antunes</td>
+            <td>765432109</td>
+            <td>Brito</td>
+            <td>1234567895</td>
+            <td>pedroaantunes@gmail.com</td>
+            <td>Utilizador</td>
+            <td><button onclick="getRowIndex(this)"  class="fas fa-trash-alt trash_costumize" name="lixo"></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+    
+</main>
+</div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/multiple_select.js"></script>
+    <script src="js/utilizadores_registados.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/datatables-demo.js"></script>
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+        
+</body>
+</html>
